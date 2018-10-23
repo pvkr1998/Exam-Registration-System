@@ -25,3 +25,9 @@ checking of questions is done by the system using pre-defined answers fed to the
 results are available immediately after the exam. All exam data is available on the Intranet/internet
 depending upon access rights. Modules need to be cleared sequentially hence flags are set. Passing
 criteria can be easily set or modified. Time-line can be set for clearing exam and modules.
+
+##Front_End
+HTML 5 , CSS 3 , Javascript , Bootstrap
+
+##Back_End
+Python , Django
