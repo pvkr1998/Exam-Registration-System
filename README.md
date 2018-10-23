@@ -26,10 +26,9 @@ results are available immediately after the exam. All exam data is available on 
 depending upon access rights. Modules need to be cleared sequentially hence flags are set. Passing
 criteria can be easily set or modified. Time-line can be set for clearing exam and modules.
 
-##Front_End
 
+## Front_End
 HTML 5 , CSS 3 , Javascript , Bootstrap
 
-##Back_End
-
+## Back_End
 Python , Django
