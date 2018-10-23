@@ -27,7 +27,9 @@ depending upon access rights. Modules need to be cleared sequentially hence flag
 criteria can be easily set or modified. Time-line can be set for clearing exam and modules.
 
 ##Front_End
+
 HTML 5 , CSS 3 , Javascript , Bootstrap
 
 ##Back_End
+
 Python , Django
