@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+bdy {
+    width: 50%;
+    height: 50%;
+    background-color: white;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+</style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Team</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="adminhome.html">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="enroll.html">Student Enrollments</a></li>
+	<li><a href="addcourses.html">Add Courses</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome User <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Change Password</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<bdy>
+<div class="panel panel-primary">
+  <div class="panel-heading">Enrollments For Exam(Id=62541)</div>
+  <div class="panel-body">
+	<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Student RollNo</th>
+        <th>Student Name</th>
+	<th>System Report</th>
+	<th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>650</td>
+        <td>EIRTUSR</td>
+	<td>OK</td>
+	<td><button type="submit" class="btn btn-default">Enroll</button>
+	<button type="submit" class="btn btn-default">Reject</button>
+	<input type="text" class="form-control" id="rmrk" placeholder="Remark"></td>
+      </tr>
+      <tr>
+        <td>704</td>
+        <td>DYIKD</td>
+	<td>Details Not Found</td>
+	<td><button type="submit" class="btn btn-default">Enroll</button>
+	<button type="submit" class="btn btn-default">Reject</button>
+	<input type="text" class="form-control" id="rmrk" placeholder="Remark"></td>
+      </tr>
+    </tbody>
+  </table>	
+  </div>
+</div>
+</bdy>
+</body>
+</html>
