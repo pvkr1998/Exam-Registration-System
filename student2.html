@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--<link rel="chipmunk" href="chipmunkcss.css">-->
+
+
+
 <style>
 body {
   margin: 0;
@@ -35,6 +39,8 @@ body {
 .chippy{
 float:right;
 color:#C0C0C0;
+vertical-align: middle;
+margin-top:10px;
 }
 table {
     font-family: arial, sans-serif;
@@ -52,7 +58,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-
+<link rel="stylesheet" href="bstrp.css" >
 </head>
 
 
@@ -63,23 +69,26 @@ tr:nth-child(even) {
   <a href="#news">Past Papers</a>
   <a href="#contact">My Courses</a>
 
+  <div class="chippy" >
+  <button type="button" class="btn btn-info">Log Out</button>
+  </div>
 </div>
 
-<form style="font-size:10px; color:7992e0";>
-<div class="chippy" >
-<input type="button" value="LOG OUT" onclick="#"/>
-</div>
+<form>
+
 </form>
 
-<div style="padding-left:60px; width:60%;margin-left:auto;margin-right:auto">
+<div style="padding-left:60px; width:80%;margin-left:auto;margin-right:auto">
+
   <div style="text-align:center;margin-top:100px">
 <h2 style="font-family:Helvetica; color:#c2d62a">COURSES</h2>
 </div>
+
 <table style="width:600px;margin-left:auto;margin-right:auto">
+
   <tr style="color:#6dcfe8">
     <th>Course Name</th>
     <th>Course ID</th>
-
   </tr>
 
   <tr>
@@ -91,22 +100,21 @@ tr:nth-child(even) {
   <tr>
     <td>Physics</td>
     <td>P1</td>
-
   </tr>
+
   <tr>
     <td>Chemistry</td>
     <td>C1</td>
-
   </tr>
+
   <tr>
     <td>Math</td>
     <td>M1</td>
-
   </tr>
+
   <tr>
     <td>Social</td>
     <td>S1</td>
-
   </tr>
 
 </table>
@@ -114,4 +122,5 @@ tr:nth-child(even) {
 </div>
 
 </body>
+
 </html>
