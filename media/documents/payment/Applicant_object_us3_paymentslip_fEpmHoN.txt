@@ -1,0 +1,10 @@
+STUDENTNAME          STUDENTMARKS
+abc             23.5
+bcd             47.9444
+NA              96
+cde             35.5
+dff             78.25
+NA              75.25
+ubd             47.9444
+nsn             43
+NA              80

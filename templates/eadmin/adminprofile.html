@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+    padding:10px 0px;
+}
+
+.col-75 {
+padding:10px 0px;
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.row
+{
+width:70%;
+margin:auto;
+}
+.container
+{
+  width:70%;
+  margin: 0 auto;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 3px;
+    overflow: hidden;
+    background-color: #333;
+    border-radius:5px;
+    font-size:20px;
+}
+
+li {
+    float: left;
+    margin:3px;
+}
+
+
+.dropdown{
+
+float:right;
+padding-right:20px;
+
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color:#007EBA;
+    border-radius:20px;
+    font-weight:bold;
+    width:85%;
+    text-align:center;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right:15;
+    background-color: #f9f9f9;
+    width:160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    margin-right:5px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover {border-radius:20px;background-color: #20b5f9;
+color:white;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    border-radius:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+  {%  load static %}
+  <li><a href="{% url 'adminhome' %}">Home</a></li>
+  <li><a href="{% url 'addexam' %}">Create Exam</a></li>
+  <li><a href="{% url 'addcourse' %}">Add Course</a></li>
+  <li class="dropdown" style="float:right;" >
+    <a href="javascript:void(0)" class="dropbtn" style="cursor:auto;">chiru_100</a>
+    <div class="dropdown-content">
+      <a href="{% url 'adminprofile' %}">My Profile</a>
+      <a href="{% url 'adminchangepassword' %}">Change Password</a>
+      <a href="{% url 'alogout' %}">LogOut</a>
+    </div>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2 style="color:white; text-align:center;margin-top:80px;font-weight:700;text-decoration:none;background-color:green;height:50px;vertical-align:middle;font-size:30px;padding-top:10px;font:Courier;border-radius:30px;width:50%;
+    margin-left:auto;
+    margin-right:auto;">Profile</h2>
+
+<!--<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>-->
+
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+
+        {% if msg %}
+         <strong>{{ msg }}</strong>
+        {% endif %}
+  <div class="row">
+      <div class="col-25">
+        <label> ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="lastname" value="{{ obj.id }}" readonly>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label> Email ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="email" value="{{ obj.email }}">
+      </div>
+    </div>
+
+
+    <!--<div class="row">-->
+      <!--<div class="col-25">-->
+        <!--<label for="fname">Phone No.</label>-->
+      <!--</div>-->
+      <!--<div class="col-75">-->
+        <!--<input type="text" id="fname" name="firstname" value="get from table">-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="row">-->
+      <!--<div class="col-25">-->
+        <!--<label for="fname">UserName</label>-->
+      <!--</div>-->
+      <!--<div class="col-75">-->
+        <!--<input type="text" id="fname" name="firstname" value="get from table">-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="row">-->
+      <!--<div class="col-25">-->
+        <!--<label for="fname">Password</label>-->
+      <!--</div>-->
+      <!--<div class="col-75">-->
+        <!--<input type="text" id="fname" name="firstname" value="get from table">-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+    <div class="row" style="margin-top:10px">
+      <input type="submit" value="Save">
+    </div>
+  </form>
+
+</div>
+
+
+</div>
+
+</body>
+</html>

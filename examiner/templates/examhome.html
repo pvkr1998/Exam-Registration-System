@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+bdy {
+    width: 50%;
+    height: 50%;
+    background-color: white;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+<nav class="navbar navbar-default" style="background:black">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Team</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="examhome.html">Home <span class="sr-only">(current)</span></a></li>
+	<li><a href="{% url 'result' %}">View Results</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome User <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <!--<li><a href="#">My Profile</a></li>-->
+            <!--<li><a href="#">Change Password</a></li>-->
+            <li><a href="{%  url 'logout' %}">Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<h2 style="color:white; text-align:center;margin-top:80px;font-weight:700;text-decoration:none;background-color:green;height:50px;vertical-align:middle;font-size:30px;padding-top:10px;font:Courier;border-radius:30px;width:50%;
+    margin-left:auto;
+    margin-right:auto;">Add Question</h2>
+
+<!--<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>-->
+
+<div class="container">
+<div class="col-sm-6">
+  <form method="post" action="{% url 'addq' %}">
+	{% csrf_token %}
+
+  <!--<div class="row">
+      <div class="col-25">
+        <label for="lname">Course</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Enter course name..">
+      </div>
+    </div>-->
+
+{% if eerr %}{{eerr}}{% endif %}
+{% if qs %}{{qs}}{% endif %}
+    <div class="form-group">
+        <label for="fname">Exam ID</label>
+        <input type="text" class="form-control" id="fname" name="examid" value="{% if edit %}{{examid}}{% endif %}" placeholder="Enter exam id..">
+    </div>
+
+
+    <div class="form-group">
+        <label for="fname">Question ID</label>
+        <input type="text" class="form-control" id="fname" name="qid" value="{% if edit %}{{qid}}{% endif %}" placeholder="Enter question id...">
+    </div>
+
+  <div class="form-group">
+        <label for="subject">Question</label>
+        <textarea id="subject" class="form-control" name="q" placeholder="Write question.." style="height:100px">{% if edit %}{{ q }}{% endif %}</textarea>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label for="fname">Option a</label>
+        <input type="text" class="form-control" id="fname" name="opta" value="{% if edit %}{{opta}}{% endif %}" placeholder="Enter option a">
+    </div>
+
+
+    <div class="form-group">
+        <label for="fname">Option b</label>
+        <input type="text" class="form-control" id="fname" name="optb" value="{% if edit %}{{optb}}{% endif %}" placeholder="Enter option b">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="fname">Option c</label>
+        <input type="text" class="form-control" id="fname" name="optc" value="{% if edit %}{{optc}}{% endif %}" placeholder="Enter option c">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="fname">Option d</label>
+        <input type="text" class="form-control" id="fname" name="optd" value="{% if edit %}{{optd}}{% endif %}" placeholder="Enter option d">
+      </div>
+
+
+
+
+
+    <div class="form-group">
+      <div class="col-25">
+        <label for="country">Answer</label>
+      </div>
+	  
+      <div class="form-group">
+        <select id="country" name="answer" class="form-control" >
+          <option name="optiona" value="optiona" >Option a</option>
+          <option name="optionb" value="optionb" >Option b</option>
+          <option name="optionc" value="optionc" >Option c</option>
+          <option name="optiond" value="optiond" >Option d</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group" style="margin-top:10px">
+	{% if edt %}
+		<input type="submit" class="btn btn-primary" value="Update" name="upd">
+	{% else %}	
+      <input type="submit" class="btn btn-primary" value="Add" name="sub">
+	  {% endif %}
+    </div>
+  </form>
+</div>
+</div>
+
+
+<h2 style="color:white; text-align:center;margin-top:100px;font-weight:700;text-decoration:none;background-color:green;height:50px;vertical-align:middle;font-size:30px;padding-top:10px;font:Courier;border-radius:30px;width:50%;
+    margin-left:auto;
+    margin-right:auto;">Edit Question</h2>
+	
+<div class="container" style="margin-bottom:100px">
+<div class="col-sm-6">
+<form method="post" action="{% url 'addq' %}">
+	{% csrf_token %}
+	{% if iderr %}{{iderr}}{% endif %}
+    <div class="form-group">
+        <label for="fname">Question ID</label>
+        <input type="text" class="form-control" id="fname" name="eqid" value="{% if iderr %}{{qid}}{% endif %}" placeholder="Enter question id..">
+    </div>
+
+    <div class="form-group" style="margin-top:10px">
+      <input type="submit" class="btn btn-primary" value="Search" name="edit">
+    </div>
+	</form>
+</div>
+</div>
+
+
+</body>
+</html>

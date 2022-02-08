@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+body {
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+.card {
+  margin-top:1rem;
+  color:black;
+  border-color:#16a93a;
+}
+.card-header{
+   color:white;
+   background:#16a93a;
+}
+main{
+  padding:1rem;
+}
+header{
+  color:rgba(255,255,255,1);
+}
+h1{
+  color:green;
+  text-transform:uppercase;
+  text-align:center;
+  font-family:"Times New Roman",serif;
+  font-style:italic;
+}
+.foot{
+  display:block;
+  margin:1rem auto;
+}
+@media only screen and (max-width: 640px){
+.thinklogo {
+    width: 190px;
+    margin-top: 20px;
+    margin-bottom:10px;
+    padding-bottom:10px;
+}
+}
+.thinklogo {
+    margin: 20px 0 0;
+    max-width: 265px;
+    height: 39px;
+    margin-bottom:10px;
+    padding-bottom:10px;
+}
+.timer{
+    float:right;
+    margin:1rem;
+    font-size:150%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+      	<div class="modal-header">
+        	<h5 class="modal-title">Are you Ready?</h5>
+      	</div>
+      	<div class="modal-body">
+        	<p>The test will have a time of 30 minutes and consists of 10 questions.The timer starts after you click below button.</p>	
+	</div>
+      	<div class="modal-footer">
+        	<button type="button" class="btn btn-success" data-dismiss="modal" id="test">Take test</button>
+      	</div>
+    	</div>
+  	</div>
+	</div>
+	<header class="bg-dark">
+		<img src="https://cr.thinkexam.com/public/assests/images/logo.SVG" alt="Think exam" class="thinklogo">
+		<span class="timer" id="timer">
+			<span id="hour">00</span>:
+			<span id="minute">00</span>:
+			<span id="second">00</span>
+		</span>
+	</header>
+	<main>
+		<h1>Operating Systems</h1>
+		<form method="post" action="{% url 'comp' %}">
+{% csrf_token %}
+{% for j in q %}
+
+		<div class="card">
+			<div class="card-header">Question {{forloop.counter}}</div>
+			<div class="card-body">
+					<div class="row">
+					<div class="col-sm-12">
+      					<span id="q1">{{j.q}}</span>
+					</div>
+					</div>
+				  <fieldset class="form-group">
+				    <div class="row">
+					<div class="col-sm-12">
+        				<div class="form-check">
+  				        <input class="form-check-input" type="radio" name="{{forloop.counter}}" id="gridRadios1" value="optiona">
+         				<label class="form-check-label" for="gridRadios1">
+            					{{j.opta}}
+          				</label>
+        				</div>
+        				<div class="form-check">
+          				<input class="form-check-input" type="radio" name="{{forloop.counter}}" id="gridRadios2" value="optionb">
+          				<label class="form-check-label" for="gridRadios2">
+            					{{j.optb}}  
+          				</label>
+        				</div>
+					<div class="form-check">
+          				<input class="form-check-input" type="radio" name="{{forloop.counter}}" id="gridRadios3" value="optionc">
+          				<label class="form-check-label" for="gridRadios3">
+            					{{j.optc}}  
+          				</label>
+        				</div>
+					<div class="form-check">
+          				<input class="form-check-input" type="radio" name="{{forloop.counter}}" id="gridRadios4" value="optiond">
+          				<label class="form-check-label" for="gridRadios4">
+            					{{j.optd}}  
+          				</label>
+        				</div>
+					</div>
+    				    </div>
+  				</fieldset>
+			</div>
+			</div>
+{% endfor %}
+
+
+			<div class="foot"><input type="submit" id="submit" class="btn btn-success btn-lg" value="submit"</input></div>
+		</form>
+<div class="foot">
+			<!--<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#sub" id="submit">Submit</button>
+				<div class="modal fade" id="sub" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+  					<div class="modal-dialog" role="document">
+    					<div class="modal-content">
+      					<div class="modal-header">
+				        <h5 class="modal-title" id="title">Want to submit?</h5>
+      					</div>
+      					<div class="modal-body">
+     					   <p>There are <span>5</span> unanswered questions.Are you sure to submit?</p>
+     					 </div>
+    					  <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-success">Submit</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>-->
+</main>
+    <!-- Bootstrap core JavaScript-->
+
+    <script>
+	$(document).ready(function(){
+		$("#myModal").modal();
+	});
+	document.getElementById("test").onclick = function(){startTimer(10);};  
+function startTimer(duration) {
+    var timer = duration, hours, minutes, seconds;
+    setInterval(function () {
+	hours = parseInt(timer / 3600, 10);
+        minutes = parseInt((timer % 3600) / 60, 10)
+        seconds = parseInt((timer % 3600) % 60, 10);
+
+	hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        document.getElementById("hour").innerHTML = hours;
+	document.getElementById("minute").innerHTML = minutes;
+	document.getElementById("second").innerHTML = seconds;
+
+        if (--timer < 0) {
+            document.getElementById("submit").click();
+        }
+    }, 1000);
+} 
+  </script>
+
+</body>
+</html>

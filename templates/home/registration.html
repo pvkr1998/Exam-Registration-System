@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exam-Register</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" >
+
+</head>
+
+<body>
+
+	<header>
+        {% load static %}
+		<img src="{% static 'home\images\nitwlogo1.png' %}" width="90%" height="70%" alt="Logo">
+	</header>
+		<main>
+			<section align="center">
+				<h2>Need an account?</h2>
+                {% if errors  %}
+				{% csrf_token %}
+                <div class="alert alert-primary" role="alert">{{ errors }}</div>
+                {% endif %}
+				<form method="POST" >
+					{% csrf_token %}
+					<fieldset>
+						<legend>Student details</legend>
+						<label class="lt">Name: <input type='text' name='username'></label>
+						<label class="lt">Roll Number: <input type='text' name='roll_no'></label>
+						<label class="lt">Password: <input type='password' name='password'></label>
+						<label class="lt" >Re-type password: <input type='password' name='rpassword'></label>
+						<label class="lt">Email: <input type='email' name='email'></label>
+						<label class="lt">Phone: <input type='text' name='phno'></label>
+						<input id="login" type='submit' value="Register">
+					</fieldset>
+				</form>
+				<div>
+					<p>Login to your account
+					{% load static %}
+						<a href="{% url 'index' %}">Login</a></p>
+				</div>
+			</section>
+
+		</main>
+	<footer>
+		<p>Designed and developed by SAP Team</p>
+	</footer>
+</body>
+</html>

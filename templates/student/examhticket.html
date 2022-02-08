@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+.container {
+
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width:40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-left-right {
+
+    position: relative;
+
+}
+.left-text {
+    left: 0;
+    position: absolute;
+    margin-left: 80px;
+}
+.byline:before{content: ": ";}
+.byline {
+
+    font-size: 25px;
+    color: rgba(140, 140, 140, 1);
+    margin-left:300px;
+    text-align:left;
+}
+
+  h2{
+    display:block;
+
+  }
+
+@media screen and (max-width: 600px) {
+      .col-25, .col-75, input[type=submit] {
+          width: 100%;
+          margin-top: 0;
+      }
+
+  }
+  @media print {
+  /* ... */
+  .container {
+
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      width:100%;
+  }
+  .text-left-right {
+      position: relative;
+  }
+  .left-text {
+      left: 0;
+      position: absolute;
+  }
+  .byline {
+
+      font-size: 20px;
+      color: rgba(140, 140, 140, 1);
+      text-align:left;
+  }
+
+    h2{
+      display:block;
+
+    }
+    .noprint{
+      display: none;
+    }
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1 style="color:white; text-align:center;margin-top:80px;font-weight:700;text-decoration:none;background-color:green;height:40px;vertical-align:middle;font-size:30px;padding-top:5px;font:Courier;border-radius:30px;width:50%;
+      margin-left:auto;
+      margin-right:auto;">Hall Ticket</h1>
+
+
+  <div class="container">
+
+   {%  load static %}
+
+  <h2 class="text-left-right">
+      <span class="left-text"> Name</span>
+      <span class="byline">{{ robj.username }}</span>
+  </h2>
+
+  <h2 class="text-left-right">
+      <span class="left-text">Roll No    </span>
+      <span class="byline">{{ robj.roll_no }}</span>
+  </h2>
+  <h2 class="text-left-right">
+      <span class="left-text">Exam ID    </span>
+      <span class="byline">{{ eobj.examid }}</span>
+  </h2>
+  <h2 class="text-left-right">
+      <span class="left-text"> Exam Name </span>
+      <span class="byline">{{ eobj.examname }}</span>
+  </h2>
+
+  <h2 class="text-left-right">
+      <span class="left-text"> Exam Date </span>
+      <span class="byline">{{ eobj.examdate }}</span>
+  </h2>
+
+  <h2 class="text-left-right">
+      <span class="left-text"> Exam Time </span>
+      <span class="byline">2 PM to 5 PM</span>
+  </h2>
+</div>
+    <button style="color:white; text-align:center;margin-top:80px;font-weight:700;text-decoration:none;background-color:green;height:40px;vertical-align:middle;font-size:30px;padding-top:5px;font:Courier;border-radius:30px;width:50%;
+    margin-left:370px;
+    margin-right:auto;" onclick="myFunction()" class="noprint" align="center">Print this page</button>
+  <script>
+  function myFunction() {
+      window.print();
+  }
+  </script>
+
+
+
+</body>
+
+</html>

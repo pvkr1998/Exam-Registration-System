@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exam-NITW</title>
+	{% load static %}
+	<link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'home/indexstyle.css' %}" >
+</head>
+
+<body>
+	<header>
+
+		<img src="{% static 'home\images\nitwlogo1.png' %}" width="90%" height="70%" alt="Logo">
+		<img class="image" src="{% static 'home\images\sample1.jpg' %}" alt="IG">
+		<img class="image" src="{% static 'home\images\Untitled-111111.jpg' %}" alt="NITW admin">
+		<img class="image" src="{% static 'home\images\Untitled-215151.jpg' %}" alt="Library">
+	</header>
+		<main>
+
+			<section align="center">
+				<h2>Exam website-NITW</h2>
+				<form method="POST" enctype="multipart/form-data" action="{% url 'index' %}">
+					{% csrf_token %}
+					<fieldset>
+						{% csrf_token %}
+						{% if msg %}
+			            <div class="alert alert-primary" role="alert">{{ msg }}</div>
+			            {% endif %}
+						<legend>Login details</legend>
+						<label>User Id: <input type='text' name='rollno'></label>
+						<label>Password: <input type='password' name='password'></label>
+        					<label class="my"><input type="radio" name="user" value="c1" id="c1">Student</label>
+        					<label class="my"><input type="radio" name="user" value="c2" id="c2">Examiner</label>
+						    <label class="my"><input type="radio" name="user" value="c3" id="c3">Admin</label>
+						 {% csrf_token %}
+						<input id="login" type='submit' value="Login">
+					</fieldset>
+				</form>
+				<div>
+					<p>Don't you have an account?
+					{% load static %}
+						<a href="{% url 'register' %}">Register</a></p>
+				</div>
+			</section>
+
+		</main>
+	<footer>
+		<p>Designed and developed by SAP Team</p>
+	</footer>
+</body>
+</html>
+

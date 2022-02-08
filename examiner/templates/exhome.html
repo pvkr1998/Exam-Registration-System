@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+
+
+input[type=text], select,textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.row
+{
+width:70%;
+margin:auto;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 3px;
+    overflow: hidden;
+    background-color: #333;
+    border-radius:5px;
+    font-size:20px;
+}
+
+li {
+    float: left;
+    margin:3px;
+}
+
+
+.dropdown{
+
+float:right;
+padding-right:20px;
+
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color:#007EBA;
+    border-radius:20px;
+    font-weight:bold;
+    width:85%;
+    text-align:center;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right:15;
+    background-color: #f9f9f9;
+    width:160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    margin-right:5px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover {border-radius:20px;background-color: #20b5f9;
+color:white;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    border-radius:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">My Questions</a></li>
+<li><a href="viewresults.html">Student Results</a></li>
+  <li class="dropdown" style="float:right;" >
+    <a href="javascript:void(0)" class="dropbtn" style="cursor:auto;">user</a>
+    <div class="dropdown-content">
+      <a href="#">My Profile</a>
+      <a href="#">Change Password</a>
+      <a href="#">LogOut</a>
+    </div>
+  </li>
+</ul>
+-->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Team</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="shomepage.html">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="erp.html">Exam Registration</a></li>
+	<li><a href="#">Past Papers</a></li>
+	<li><a href="mycourses.html">My Courses</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome User <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Change Password</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<h2 style="color:white; text-align:center;margin-top:80px;font-weight:700;text-decoration:none;background-color:green;height:50px;vertical-align:middle;font-size:30px;padding-top:10px;font:Courier;border-radius:30px;width:50%;
+    margin-left:auto;
+    margin-right:auto;">Add Question</h2>
+
+<!--<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>-->
+
+<div class="container">
+  <form method="post" action="{% url 'addq' %}">
+	{% csrf_token %}
+
+  <!--<div class="row">
+      <div class="col-25">
+        <label for="lname">Course</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Enter course name..">
+      </div>
+    </div>-->
+
+{% if eerr %}{{eerr}}{% endif %}
+{% if qs %}{{qs}}{% endif %}
+    <div class="form-group">
+      <div class="col-25">
+        <label for="fname">Exam ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="examid" value="{% if edit %}{{examid}}{% endif %}" placeholder="Enter exam id..">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Question ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="qid" value="{% if edit %}{{qid}}{% endif %}" placeholder="Enter question id...">
+      </div>
+    </div>
+
+  <div class="row">
+      <div class="col-25">
+        <label for="subject">Question</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="q" placeholder="Write question.." style="height:100px">{% if edit %}{{ q }}{% endif %}</textarea>
+      </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Option a</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="opta" value="{% if edit %}{{opta}}{% endif %}" placeholder="Enter option a">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Option b</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="optb" value="{% if edit %}{{optb}}{% endif %}" placeholder="Enter option b">
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Option c</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="optc" value="{% if edit %}{{optc}}{% endif %}" placeholder="Enter option c">
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Option d</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="optd" value="{% if edit %}{{optd}}{% endif %}" placeholder="Enter option d">
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Answer</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="answer">
+          <option name="optiona" value="optiona" >Option a</option>
+          <option name="optionb" value="optionb" >Option b</option>
+          <option name="optionc" value="optionc" >Option c</option>
+          <option name="optiond" value="optiond" >Option d</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="row" style="margin-top:10px">
+	{% if edt %}
+		<input type="submit" value="Update" name="upd">
+	{% else %}	
+      <input type="submit" value="Submit" name="sub">
+	  {% endif %}
+    </div>
+  </form>
+</div>
+
+<h2 style="color:white; text-align:center;margin-top:100px;font-weight:700;text-decoration:none;background-color:green;height:50px;vertical-align:middle;font-size:30px;padding-top:10px;font:Courier;border-radius:30px;width:50%;
+    margin-left:auto;
+    margin-right:auto;">Edit Question</h2>
+<div class="container" style="margin-bottom:100px">
+<form method="post" action="{% url 'addq' %}">
+	{% csrf_token %}
+	{% if iderr %}{{iderr}}{% endif %}
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Question ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="eqid" value="{% if iderr %}{{qid}}{% endif %}" placeholder="Enter question id..">
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:10px">
+      <input type="submit" value="Search" name="edit">
+    </div>
+	</form>
+</div>
+
+</body>
+</html>

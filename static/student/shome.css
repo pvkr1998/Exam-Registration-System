@@ -1,0 +1,31 @@
+body {
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+.card {
+  margin-top:1rem;
+  color:black;
+  border-color:#16a93a;
+
+}
+.card-header{
+   color:white;
+   background:#16a93a;
+}
+.card li a,span{
+  float:right;
+  padding-right:8rem;
+}
+main{
+  padding:1rem;
+}
+#table{
+  padding:9rem;
+}
+table{
+  margin:0 auto;
+  text-align:center;
+}
